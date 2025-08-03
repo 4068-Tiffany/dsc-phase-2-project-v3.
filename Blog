@@ -37,7 +37,7 @@ One dataset was in SQL, the other was in Excel!
 I learned that clean data is the foundation of everything.
 Garbage data? Garbage results just as my instructor once said
 
-Step 3: SQL and Pandas
+**Step 3: SQL and Pandas**
 Once my data was finally clean, I needed to bring everything together.
 This is where SQL and Pandas came in.
 
@@ -60,12 +60,10 @@ merged_basic.head()
 
 
 SQL helped me join multiple tables.
-
 Pandas made it easy to manipulate the data in Python.
-
 It felt like I was finally in control of my data.
 
-Step 4: Visualization – When Data Speaks
+**Step 4: Visualization – When Data Speaks**
 Here’s where the fun began.
 I plotted scatterplots, line charts, and bar graphs to explore patterns.
 With Tableau, I built dashboards that made my data come alive.
@@ -76,16 +74,13 @@ For the first time, I saw the story hidden inside the numbers:
      -Ratings have stayed fairly stable
      -Some genres (like Drama) shine in ratings even if they are not the most hyped
 
-Step 5: Insights and Storytelling
-My biggest insight?
-Popularity does not always mean quality.
-
+**Step 5: Insights and Storytelling**
 But here’s the bigger lesson:
 No one will care about your data unless you can tell a good story with it.
 
 I learned how important communication is in data science.
 
-What I’ll Take With Me
+What I’ll Take With Me:
 This project taught me that data science is not about fancy algorithms.
 It’s about:
     -Asking good questions
