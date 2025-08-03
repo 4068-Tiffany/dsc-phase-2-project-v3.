@@ -1,0 +1,99 @@
+### What I Learned From My First Data Science Project: More Than Just Numbers ###
+When I started learning data science, I thought it was all about coding. If you can write some Python, you’re a data scientist, right?
+Turns out, I couldn’t have been more wrong.
+
+This project opened my eyes to what data science really is.
+
+**Step 1: Curiosity Comes First**
+Everything started with a question:
+
+**Do popular movies always mean good movies?**
+
+It sounded simple, but this question guided my entire journey.
+I learned that the heart of data science is curiosity.
+If you can’t ask the right question, no amount of coding will save you.
+
+**Step 2: Cleaning** 
+Reality check:
+70% of my time was spent cleaning the data.
+First I imported the datasets:
+
+```python
+import sqlite3
+import pandas as pd
+
+conn = sqlite3.connect('im.db')
+
+tables = conn.execute("SELECT name FROM sqlite_master WHERE type='table';").fetchall()
+print([t[0] for t in tables])
+```
+
+Then i started cleaning;
+
+There were missing values everywhere.
+Some tables didn’t even agree on column names.
+One dataset was in SQL, the other was in Excel!
+
+I learned that clean data is the foundation of everything.
+Garbage data? Garbage results just as my instructor once said
+
+Step 3: SQL and Pandas
+Once my data was finally clean, I needed to bring everything together.
+This is where SQL and Pandas came in.
+
+```python
+query = """
+SELECT b.primary_title,b.start_year,r.averagerating,t.popularity,t.vote_average, p.person_id, p.category
+FROM movie_basics AS b
+JOIN movie_ratings AS r
+    ON b.movie_id = r.movie_id
+JOIN tmdb_movies AS t
+    ON b.primary_title = t.original_title AND b.start_year = t.year
+LEFT JOIN principals AS p
+    ON b.movie_id = p.movie_id;
+"""
+```
+
+merged_basic = pd.read_sql_query(query, conn)
+print("Rows in basic merge:", merged_basic.shape)
+merged_basic.head()
+
+
+SQL helped me join multiple tables.
+
+Pandas made it easy to manipulate the data in Python.
+
+It felt like I was finally in control of my data.
+
+Step 4: Visualization – When Data Speaks
+Here’s where the fun began.
+I plotted scatterplots, line charts, and bar graphs to explore patterns.
+With Tableau, I built dashboards that made my data come alive.
+https://public.tableau.com/app/profile/tiffany.cheruto/viz/Phase2project_17542010359280
+
+For the first time, I saw the story hidden inside the numbers:
+     -Popularity is rising in recent years
+     -Ratings have stayed fairly stable
+     -Some genres (like Drama) shine in ratings even if they are not the most hyped
+
+Step 5: Insights and Storytelling
+My biggest insight?
+Popularity does not always mean quality.
+
+But here’s the bigger lesson:
+No one will care about your data unless you can tell a good story with it.
+
+I learned how important communication is in data science.
+
+What I’ll Take With Me
+This project taught me that data science is not about fancy algorithms.
+It’s about:
+    -Asking good questions
+    -Cleaning and organizing messy data
+    -Looking for patterns
+    -Communicating insights clearly
+
+I’m excited to keep practicing and to see where this journey takes me next.
+
+**Tools I used**: Python, Pandas, SQL, Tableau, Seaborn, Matplotlib
+I cant wait to learn about machine learning models
